@@ -19,7 +19,7 @@ jobs:
 
       - name: checkout
 
-        uses: actions/checkout@master
+        uses: actions/checkout@main
 
         # 安装依赖
 
