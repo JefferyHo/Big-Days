@@ -1,7 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import { Routes, Route, useNavigate, useLocation, HashRouter } from 'react-router-dom';
 import Home from './pages/home/index';
 import InfoPage from './pages/info/index';
 import Contact from './pages/contact/index';
@@ -27,14 +24,14 @@ const Footer = () => {
 function App() {
   return (
     <DBProvider>
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/info/:id?" element={<InfoPage />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
-      </BrowserRouter>
+      </HashRouter>
     </DBProvider>
   )
 }
