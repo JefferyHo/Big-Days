@@ -10,6 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 设置 Node.js 版本
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20' # 指定 Node.js 的版本
+          cache: 'yarn'      # 使用 Yarn 包管理器的缓存
+          
       # 检出代码
       - name: Checkout code
         uses: actions/checkout@v3
