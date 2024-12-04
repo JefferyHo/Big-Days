@@ -151,7 +151,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   您的支持将帮助我们更好地优化和维护服务。感谢您的慷慨捐助！
   
   请扫描下方二维码进行捐赠：
-  `}),Ee.jsx(i4,{children:Ee.jsx(o4,{src:"/donate.jpg"})})]})}const i4=At.div`
+  `}),Ee.jsx(i4,{children:Ee.jsx(o4,{src:"/Big-Days/donate.jpg"})})]})}const i4=At.div`
   text-align: center;
   margin: .6rem 0;
 `,o4=At.img`
