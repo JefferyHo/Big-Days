@@ -15,19 +15,23 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20' # 指定 Node.js 的版本
-          cache: 'yarn'      # 使用 Yarn 包管理器的缓存
-          
+          cache: 'pnpm'      # 使用 Yarn 包管理器的缓存
+
+      # 安装 pnpm
+      - name: Install pnpm
+        run: npm install -g pnpm
+        
       # 检出代码
       - name: Checkout code
         uses: actions/checkout@v3
 
       # 安装依赖
       - name: Install dependencies
-        run: yarn
+        run: pnpm i
 
       # 打包构建
       - name: Build project
-        run: yarn build
+        run: pnpm run build
 
       # 部署到 GitHub Pages
       - name: Deploy to GitHub Pages
