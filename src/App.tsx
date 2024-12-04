@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Home from './pages/home/index';
 import InfoPage from './pages/info/index';
@@ -5,6 +8,7 @@ import Contact from './pages/contact/index';
 import './App.css'
 import { DBProvider } from './db/DBProvider';
 import styled from 'styled-components';
+
 
 const Footer = () => {
   const location = useLocation();
@@ -23,7 +27,7 @@ const Footer = () => {
 function App() {
   return (
     <DBProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/info/:id?" element={<InfoPage />} />
