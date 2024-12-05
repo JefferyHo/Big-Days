@@ -9,6 +9,7 @@ interface DateProps {
   id: string;
   title: string;
   date: string;
+  level: number;
 }
 
 function App() {
@@ -55,6 +56,25 @@ function App() {
       async function getList() {
         const list = await db.readAll() as DateProps[];
         // console.log(list);
+        const now = dayjs(); // 当前时间
+        list.sort((a, b) => {
+          if (a.level !== b.level) return b.level - a.level;
+
+          const atime = dayjs(a.date);
+          const btime = dayjs(b.date);
+
+          const isABeforeNow = atime.isBefore(now);
+          const isBBeforeNow = btime.isBefore(now);
+
+          if (isABeforeNow === isBBeforeNow) {
+            const aDiff = Math.abs(atime.diff(now));
+            const bDiff = Math.abs(btime.diff(now));
+            return aDiff - bDiff; 
+          }
+
+          if (isABeforeNow) return 1;
+          return -1;
+        });
         setDataList(list);
       }
       getList();

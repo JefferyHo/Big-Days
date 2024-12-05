@@ -1,6 +1,8 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 
+import dayjs from "dayjs";
+
 interface TableColumnsProps {
   name: string;
   unique: boolean;
@@ -81,7 +83,8 @@ export default class IndexDB {
           .objectStore(this.tablename)
           .add({
             id: crypto.randomUUID(),
-            ...data
+            ...data,
+            createAt: dayjs().format('YYYY-MM-DD HH:mm:ss')
           })
         
         request.onsuccess =  function() {
@@ -188,7 +191,10 @@ export default class IndexDB {
           return;
         }
         const request = this.db.transaction([this.tablename], 'readwrite').objectStore(this.tablename)
-          .put(data)
+          .put({
+            ...data,
+            updateAt: dayjs().format('YYYY-MM-DD HH:mm:ss')
+          })
     
         request.onsuccess = function() {
           resolve();

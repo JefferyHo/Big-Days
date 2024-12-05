@@ -12,6 +12,9 @@ export const DBProvider: React.FC<{ children: React.ReactNode }> = ({ children }
       const dbInstance = new IndexDB('big_days', 'days', [
         { name: 'title', unique: true }, 
         { name: 'date', unique: false }, 
+        { name: 'createAt', unique: false }, 
+        { name: 'updateAt', unique: false }, 
+        { name: 'level', unique: false }, 
       ]);
       await dbInstance.init();
       setDBReady(dbInstance);

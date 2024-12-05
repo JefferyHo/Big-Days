@@ -1,6 +1,6 @@
 import { RefObject, useEffect } from 'react'
 import dayjs from 'dayjs'
-import { Form, Input, Button, DatePickerRef, DatePicker, Space, Toast } from 'antd-mobile';
+import { Form, Input, Button, DatePickerRef, DatePicker, Space, Toast, Rate } from 'antd-mobile';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDB } from '../../db/DBProvider';
 
@@ -66,7 +66,8 @@ function Info() {
         name='form'
         initialValues={{
           title: '',
-          date: null
+          date: null,
+          level: 1
         }}
         onFinish={onFinish}
         footer={
@@ -99,11 +100,16 @@ function Info() {
             datePickerRef.current?.open()
           }}
         >
-          <DatePicker>
+          <DatePicker
+            min={dayjs().subtract(50, 'year').startOf('year').toDate()}
+            max={dayjs().add(50, 'year').endOf('year').toDate()}>
             {value =>
               value ? dayjs(value).format('YYYY-MM-DD') : '请选择日期'
             }
           </DatePicker>
+        </Form.Item>
+        <Form.Item name='level' label='重要性' rules={[{ required: true }]}>
+          <Rate allowClear={false} />
         </Form.Item>
       </Form>
     </>
