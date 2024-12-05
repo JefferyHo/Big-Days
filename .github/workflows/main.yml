@@ -39,4 +39,4 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           branch: gh-pages
           folder: docs
-          CLEAN: true
+          # CLEAN: true
