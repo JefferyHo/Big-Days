@@ -19,7 +19,7 @@ jobs:
 
       # 全局依赖安装
       - name: Install pnpm
-        run: npm install -g pnpm
+        run: yarn global add pnpm
 
       # 检出代码
       - name: Checkout code
