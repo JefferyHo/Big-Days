@@ -27,7 +27,7 @@ export default function Contact() {
   `}
   </pre>
   <ImgWrap>
-    <Img src="src/assets/images/donate.jpg" />
+    <Img src="/Big-Days/donate.jpg" />
   </ImgWrap>
   </>
 }
