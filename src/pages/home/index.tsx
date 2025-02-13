@@ -179,7 +179,7 @@ function App() {
 }
 
 const Wrap = styled.div`
-  height: 100vh;
+  height: 100dvh;
   background: #f1f2f3;
   padding: 1rem 0rem;
   box-sizing: border-box;
