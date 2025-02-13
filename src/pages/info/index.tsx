@@ -16,7 +16,6 @@ function Info() {
   useEffect(() => {
     async function getRecord() {
      const record = await db.readOneById(id as string);
-     console.log(record);
      form.setFieldsValue({
       ...record,
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
