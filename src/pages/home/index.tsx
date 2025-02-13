@@ -92,7 +92,7 @@ function App() {
         for (const [name, startdate] of holidayMap.entries()) {
           if (dayjs(startdate).isAfter(dayjs())) {
             dateArray.push({
-              id: Date.now(),
+              id: '' + Date.now(),
               title: name,
               date: startdate,
               level: 1,
